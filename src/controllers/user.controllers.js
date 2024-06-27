@@ -9,12 +9,9 @@ const getAll = catchError(async (req, res) => {
 });
 
 const create = catchError(async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const result = await User.create({ ...req.body, password: hashedPassword });
+    const result = await User.create(req.body);
     return res.status(201).json(result);
 });
-
-
 
 const remove = catchError(async (req, res) => {
     const { id } = req.params;
@@ -24,10 +21,10 @@ const remove = catchError(async (req, res) => {
 });
 
 const update = catchError(async (req, res) => {
-    const { id } = req.params;
+    const fieldsRemove = ['password', 'email']
+    fieldsRemove.forEach((fields) => delete req.body[fields])
 
-    delete req.body.password
-    delete req.body.email
+    const { id } = req.params;
 
     const result = await User.update(
         req.body,
