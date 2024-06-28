@@ -22,7 +22,6 @@ beforeAll(async () => {
         .send(body)
 
     TOKEN = res.body.token
-    console.log(res.body)
 })
 
 //? CREATE 
