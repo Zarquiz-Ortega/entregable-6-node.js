@@ -10,11 +10,11 @@ Category.hasMany(Product)
 
 //! cart -> userId
 Cart.belongsTo(User)
-Cart.hasMany(User)
+User.hasMany(Cart)
 
 //! cart -> productId
 Cart.belongsTo(Product)
-Cart.hasMany(Product)
+Product.hasMany(Cart)
 
 
 //TODOS RELACIONES DE MUCHOS A MUCHOS (M-M)
