@@ -10,7 +10,9 @@ const getAll = catchError(async (req, res) => {
         where: { userId },
         include: [{
             model: Product,
+            //! el atributo exclude escluye los elemontos a no mostrar de un modelo
             attributes: { exclude: ["createdAt", "updatedAt"] },
+            //? se pude realizar otrp include para los modelos que contegan otra relacion
             include: [{
                 model: Category,
                 attributes: ['name']

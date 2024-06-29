@@ -4,6 +4,7 @@ const routerCategory = require('./category.roter');
 const routerProduct = require('./product.router');
 const routerCart = require('./cart.roter');
 const { verifyJwt } = require('../utils/verifyJWT');
+const routerPurchase = require('./purchase.router');
 const router = express.Router();
 
 // colocar las rutas aquí
@@ -15,5 +16,7 @@ router.use('/categorys', routerCategory)
 router.use('/products', routerProduct)
 //? CART
 router.use('/cart', verifyJwt, routerCart)
+//? PURCHASE
+router.use('/purchase',verifyJwt, routerPurchase)
 
 module.exports = router;
