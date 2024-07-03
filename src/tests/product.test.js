@@ -1,9 +1,11 @@
 require('../models')
 const request = require('supertest')
 const app = require('../app')
+const path = require('path')
 const Category = require('../models/Category')
+const ProductImg = require('../models/ProductImg')
 
-let TOKEN, product, productId, category
+let TOKEN, product, productId, category, productImagen
 
 const BASE_URL = '/api/v1/products'
 const BASE_URL_LOGIN = '/api/v1/users/login'
@@ -103,3 +105,5 @@ test("DELET -> 'BASE_URL/:id', should resturn status code 204", async () => {
 
     expect(res.status).toBe(204)
 })
+
+//? SET IMAGES

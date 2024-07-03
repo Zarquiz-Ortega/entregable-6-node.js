@@ -20,7 +20,7 @@ const getAll = catchError(async (req, res) => {
             },
             {
                 model: ProductImg
-            }]        
+            }]
         }]
     });
     return res.json(results);
@@ -68,9 +68,9 @@ const remove = catchError(async (req, res) => {
 const update = catchError(async (req, res) => {
     const userId = req.user.id
     const { id } = req.params;
-    const { quantity } = res.body
+    const { quantity } = req.body
     const result = await Cart.update(
-        quantity,
+        { quantity },
         { where: { id, userId }, returning: true }
     );
     if (result[0] === 0) return res.sendStatus(404);
