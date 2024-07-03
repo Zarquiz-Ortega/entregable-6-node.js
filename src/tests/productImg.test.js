@@ -32,7 +32,7 @@ test("POST -> 'BASE_URL', async() should return status code 201, res.body.url, r
 
     imageId = res.body.id
 
-    expect(res.status).toBe(200)
+    expect(res.status).toBe(201)
     expect(res.body.url).toBeDefined()
     expect(res.body.filename).toBeDefined()
 })
