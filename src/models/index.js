@@ -1,6 +1,7 @@
 const Cart = require("./Cart");
 const Category = require("./Category");
 const Product = require("./Product");
+const ProductImg = require("./ProductImg");
 const Purchase = require("./Purchase");
 const User = require("./User");
 
@@ -9,21 +10,24 @@ const User = require("./User");
 Product.belongsTo(Category) //! FK categoryID
 Category.hasMany(Product)
 
-//! cart -> userId
+//! cart => userId
 Cart.belongsTo(User)
 User.hasMany(Cart)
 
-//! cart -> productId
+//! cart => productId
 Cart.belongsTo(Product)
 Product.hasMany(Cart)
 
-//! Purchase -> userId
+//! Purchase => userId
 Purchase.belongsTo(User)
 User.hasMany(Purchase)
 
-//! Purchase -> productId
+//! Purchase => productId
 Purchase.belongsTo(Product)
 Product.hasMany(Purchase)
 
+//! ProductImg => productId
+ProductImg.belongsTo(Product)
+Product.hasMany(ProductImg)
 
 //TODOS RELACIONES DE MUCHOS A MUCHOS (M-M)
